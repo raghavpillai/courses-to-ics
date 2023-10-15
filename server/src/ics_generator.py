@@ -40,6 +40,9 @@ class IcsGenerator:
             if class_obj.class_status == "Dropped":
                 errors += f"[INFO] Class was dropped, not showing {class_obj.class_num}.{class_obj.section_num}\n"
                 continue
+            if "To Be Announced" in class_obj.times:
+                errors += f"[INFO] Class was to be announced, not showing {class_obj.class_num}.{class_obj.section_num}\n"
+                continue
 
             start_time = datetime.strptime(class_obj.times.split(" to ")[0], "%I:%M%p").time()
             end_time = datetime.strptime(class_obj.times.split(" to ")[1], "%I:%M%p").time()
