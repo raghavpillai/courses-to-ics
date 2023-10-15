@@ -40,7 +40,8 @@ class IcsGenerator:
             if class_obj.class_status == "Dropped":
                 errors += f"[INFO] Class was dropped, not showing {class_obj.class_num}.{class_obj.section_num}\n"
                 continue
-            if "To Be Announced" in class_obj.times:
+
+            if "To be Announced" in class_obj.times:
                 errors += f"[INFO] Class was to be announced, not showing {class_obj.class_num}.{class_obj.section_num}\n"
                 continue
 
